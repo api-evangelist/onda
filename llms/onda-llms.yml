@@ -1,0 +1,21 @@
+generated: '2026-08-26'
+method: probed
+source: https://drinkonda.com/llms.txt
+file: onda-llms.txt
+http_status: 200
+content_type: text/markdown
+bytes: 106
+pointer_emitted: false
+pointer_withheld_reason: >-
+  The document that was fetched is real and is saved verbatim, but it is a Shopify
+  platform-generated placeholder for an unavailable store, not an llms.txt Onda authored. Its
+  entire body reads "# Store Unavailable / This store is currently unavailable. Agent interaction
+  is not possible at this time." Wiring a type LLMsTxt pointer to it would credit Onda with an
+  agent-facing description of its surface, when the document explicitly disclaims that any agent
+  surface exists. Kept as dated evidence of the storefront's state, not as an artifact.
+  Do not promote this to a LLMsTxt pointer on a later pass without first confirming the store is
+  back up and serving an Onda-authored llms.txt.
+context: >-
+  Onda publishes no API and no developer program. On 2026-08-26 drinkonda.com returned HTTP 404
+  "This store is unavailable" on every path probed, and robots.txt disallows all crawling. The
+  last archived working capture of the storefront is 2026-02-18.

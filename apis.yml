@@ -1,17 +1,41 @@
 aid: onda
 name: Onda
-description: 'Onda is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Onda is a ready-to-drink spirits brand that makes canned sparkling tequila — blanco tequila from a
+  woman-owned distillery in Jalisco, Mexico, blended with sparkling water and real fruit juice and
+  sold in 12 oz cans at 5% ABV, 100 calories, zero sugar and naturally gluten free, in lime, blood
+  orange, watermelon and grapefruit. The company was founded in 2019 and launched publicly in July
+  2020 by Noah Gray (CEO), Max Dworin (COO), Kelli Adams (CCO) and actor-producer Shay Mitchell
+  (Chief Brand Officer). It raised a $5M Series A in 2021 and a $12.5M growth round in 2022 from
+  existing investors including Aria Growth Partners and 25madison, and sells through national
+  grocery, liquor retail and third-party beverage e-commerce alongside its own direct-to-consumer
+  store. NO PUBLIC API SURFACE: Onda is a consumer packaged goods company, not a software vendor —
+  there is no developer program, no API documentation, no SDK and no machine-readable contract of
+  any kind. Its only owned web property, drinkonda.com, is a Shopify storefront that on 2026-08-26
+  returned HTTP 404 "This store is unavailable" on every path probed, with a robots.txt that
+  disallows all crawling and a Shopify-generated /llms.txt that states agent interaction is not
+  possible; the last archived working capture of the storefront is 2026-02-18. Onda appears in the
+  API Evangelist network because it trades on the private secondary market (EquityZen, Nasdaq
+  Private Market), not because it publishes an API.
 url: https://raw.githubusercontent.com/api-evangelist/onda/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-source-url: https://www.nasdaqprivatemarket.com/
+x-tier: profiled
+x-tier-reason: no-public-api-surface
 specificationVersion: '0.20'
 created: '2026-08-26'
 modified: '2026-08-26'
 tags:
-- Company
+- Consumer Packaged Goods
+- Beverages
+- Alcohol
+- Ready-to-Drink
+- Tequila
+- Direct-to-Consumer
+- E-Commerce
+- Retail
+- Shopify
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +43,37 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/onda-domain-security.yml
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://drinkonda.com/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/drinkonda
+- type: Instagram
+  url: https://www.instagram.com/drinkonda/
+x-enrichment:
+  date: '2026-08-26'
+  status: minimal
+  artifacts_added: 5
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    Onda sells canned sparkling tequila in 12 oz cans through grocery and liquor retail; its only
+    owned web property, drinkonda.com, is a Shopify storefront that returned HTTP 404 "This store
+    is unavailable" on every path probed, with no api/developer/docs subdomain resolving in DNS.
+  evidence:
+  - url: https://drinkonda.com/
+    status: 404
+  - url: https://drinkonda.com/llms.txt
+    status: 200
+  - url: https://drinkonda.com/robots.txt
+    status: 200
+  - url: https://drinkonda.com/.well-known/agent-card.json
+    status: 404
+  - url: https://drinkonda.com/openapi.json
+    status: 404
+  - url: https://api.drinkonda.com/
+    status: 0
+  checked: '2026-08-26'

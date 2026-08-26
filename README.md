@@ -64,5 +64,29 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Onda is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+Onda is a ready-to-drink spirits brand making canned sparkling tequila — blanco tequila from a
+distillery in Jalisco, Mexico blended with sparkling water and real fruit juice, 12 oz cans at 5%
+ABV. Founded 2019, launched July 2020 by Noah Gray, Max Dworin, Kelli Adams and Shay Mitchell.
+
+**Website:** https://drinkonda.com/
+
+**Onda publishes no public API surface** — no developer program, no API documentation, no SDK, no
+machine-readable contract. It is a consumer packaged goods company, and it appears in this network
+because it trades on the private secondary market, not because it ships an API.
+
+Probed 2026-08-26: `drinkonda.com` is a Shopify storefront currently returning HTTP 404
+*"This store is unavailable"* on every path, `robots.txt` disallows all crawling, and the
+Shopify-generated `/llms.txt` reads *"This store is currently unavailable. Agent interaction is not
+possible at this time."* No `api.`, `developer.`, `docs.`, `dev.` or `mcp.` subdomain resolves.
+The last archived working capture of the storefront is 2026-02-18.
+
+What is in this repo is the record of that probe, not an invented API:
+
+- `well-known/onda-well-known.yml` — every `/.well-known/` path probed, all 404, plus the
+  soft-404 control that proves those are real negatives. No `WellKnown` pointer is emitted.
+- `security/onda-domain-security.yml` — TLS/HSTS/DNSSEC/CAA/SPF/DMARC observed on `drinkonda.com`.
+- `llms/onda-llms.txt` + `llms/onda-llms.yml` — the served `llms.txt` saved verbatim as dated
+  evidence, deliberately **not** wired as an `LLMsTxt` pointer.
+
+If you work at Onda and this is wrong, or you publish a contract we have not found, open an issue
+here or email kin@apievangelist.com.

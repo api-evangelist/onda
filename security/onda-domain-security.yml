@@ -1,0 +1,30 @@
+generated: '2026-08-26'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml hosts (probe-domain-security.py, plus a manual
+  curl HEAD to correct an HSTS false negative — see note)
+note: >-
+  Onda publishes no API, so the only host in scope is the company's own storefront domain
+  drinkonda.com. The Shopify origin answers HTTP 404 "This store is unavailable" on every path
+  (checked 2026-08-26); the automated probe records hsts as null because its HEAD request raised
+  on that 404 before reading headers. A manual HEAD confirms the origin does send
+  Strict-Transport-Security: max-age=7889238, so hsts is recorded as true with the observed
+  max-age. Everything below is what was actually observed — an absent record (no CAA, no DNSSEC)
+  is valid data, not a gap in the probe.
+hosts:
+- host: drinkonda.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  2 08:16:58 2026 GMT
+  http_status: 404
+  hsts: true
+  hsts_max_age: 7889238
+  hsts_source: manual curl HEAD https://drinkonda.com/ 2026-08-26
+  edge: cloudflare
+  origin_platform: Shopify
+domains:
+- domain: drinkonda.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject

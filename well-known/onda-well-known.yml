@@ -1,0 +1,100 @@
+generated: '2026-08-26'
+method: probed
+source: direct HTTPS probes of every /.well-known/ path on the only host Onda owns
+note: >-
+  Onda is a canned-tequila CPG brand with no API and no developer program, so there is exactly one
+  host in scope: its own storefront, drinkonda.com. Every /.well-known/ path was probed on
+  2026-08-26 and every one returned 404. The origin is a Shopify store that is currently
+  UNAVAILABLE — the site root itself returns HTTP 404 with the body "This store is unavailable" —
+  so these are not "provider chose not to publish discovery documents" 404s so much as "the whole
+  storefront is 404ing" 404s. Either way nothing was served and nothing was saved.
+  NO WellKnown AND NO SecurityTxt POINTER IS EMITTED: hit_count is 0, and a pointer would assert
+  that Onda serves a discovery surface it does not.
+  Two non-.well-known documents DID return 200 and are recorded below for completeness; neither is
+  a discovery document and neither earns a pointer. /robots.txt is Shopify's default and disallows
+  all crawling. /llms.txt is a Shopify platform-generated placeholder whose entire content is
+  "This store is currently unavailable. Agent interaction is not possible at this time." — it is a
+  tombstone that disclaims an agent surface rather than describing one, so wiring type LLMsTxt to
+  it would credit Onda with an agent-facing document the document itself says does not exist.
+hit_count: 0
+soft_404_control:
+  path: /.well-known/api-evangelist-probe-control-does-not-exist
+  status: 404
+  note: >-
+    The origin returns a genuine 404 status (not a catch-all 200) for unknown paths, so the 404s
+    below are real negatives rather than an SPA catch-all masking a served surface.
+hosts:
+- host: https://drinkonda.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+other_probes:
+- url: https://drinkonda.com/
+  status: 404
+  content_type: text/html
+  note: Shopify "This store is unavailable" page; last archived working capture 2026-02-18.
+- url: https://drinkonda.com/robots.txt
+  status: 200
+  content_type: text/plain
+  file: onda-robots.txt
+  note: >-
+    Shopify default robots.txt. It sets User-agent star with Disallow slash — all crawling
+    disallowed across the whole storefront.
+- url: https://drinkonda.com/llms.txt
+  status: 200
+  content_type: text/markdown
+  file: ../llms/onda-llms.txt
+  note: Shopify store-unavailable placeholder, not a provider-authored llms.txt. No pointer.
+- url: https://drinkonda.com/sitemap.xml
+  status: 404
+- url: https://drinkonda.com/products.json
+  status: 404
+- url: https://drinkonda.com/collections/all
+  status: 404
+- url: https://drinkonda.com/policies/terms-of-service
+  status: 404
+- url: https://drinkonda.com/policies/privacy-policy
+  status: 404
+- url: https://drinkonda.com/openapi.json
+  status: 404
+- url: https://drinkonda.com/swagger.json
+  status: 404
+- url: https://drinkonda.com/api-docs
+  status: 404
+subdomain_probes:
+  note: >-
+    STEP 0b contract discovery also checked the subdomains an API program would normally live on.
+    None of them resolve in DNS (NXDOMAIN), so there is no API host, docs host or MCP host to
+    probe for OpenAPI, GraphQL SDL, tools/list or an agent card.
+  hosts:
+  - host: api.drinkonda.com
+    status: NXDOMAIN
+  - host: developer.drinkonda.com
+    status: NXDOMAIN
+  - host: docs.drinkonda.com
+    status: NXDOMAIN
+  - host: dev.drinkonda.com
+    status: NXDOMAIN
+  - host: mcp.drinkonda.com
+    status: NXDOMAIN
+  - host: shop.drinkonda.com
+    status: NXDOMAIN
