@@ -18,6 +18,9 @@ description: >-
   API Evangelist network because it trades on the private secondary market (EquityZen, Nasdaq
   Private Market), not because it publishes an API.
 url: https://raw.githubusercontent.com/api-evangelist/onda/refs/heads/main/apis.yml
+x-api-posture: no-product-api
+x-api-posture-basis: observed
+x-api-posture-note: "NO PUBLIC API SURFACE: Onda is a consumer packaged goods company, not a software vendor — there is no developer program, no API documentation, no SDK and no machine-readable contract of any kind."
 x-type: company
 x-source: harvest:secondary-market
 x-source-url: https://www.nasdaqprivatemarket.com/
