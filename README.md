@@ -64,29 +64,79 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Onda is a ready-to-drink spirits brand making canned sparkling tequila — blanco tequila from a
-distillery in Jalisco, Mexico blended with sparkling water and real fruit juice, 12 oz cans at 5%
-ABV. Founded 2019, launched July 2020 by Noah Gray, Max Dworin, Kelli Adams and Shay Mitchell.
+Onda is a ready-to-drink spirits brand that makes canned sparkling tequila — blanco tequila from a woman-owned distillery in Jalisco, Mexico, blended with sparkling water and real fruit juice and sold in 12 oz cans at 5% ABV, 100 calories, zero sugar and naturally gluten free, in lime, blood orange, watermelon and grapefruit. The company was founded in 2019 and launched publicly in July 2020 by Noah Gray (CEO), Max Dworin (COO), Kelli Adams (CCO) and actor-producer Shay Mitchell (Chief Brand Officer). It raised a $5M Series A in 2021 and a $12.5M growth round in 2022 from existing investors including Aria Growth Partners and 25madison, and sells through national grocery, liquor retail and third-party beverage e-commerce alongside its own direct-to-consumer store. NO PUBLIC API SURFACE: Onda is a consumer packaged goods company, not a software vendor — there is no developer program, no API documentation, no SDK and no machine-readable contract of any kind. Its only owned web property, drinkonda.com, is a Shopify storefront that on 2026-08-26 returned HTTP 404 "This store is unavailable" on every path probed, with a robots.txt that disallows all crawling and a Shopify-generated /llms.txt that states agent interaction is not possible; the last archived working capture of the storefront is 2026-02-18. Onda appears in the API Evangelist network because it trades on the private secondary market (EquityZen, Nasdaq Private Market), not because it publishes an API.
 
-**Website:** https://drinkonda.com/
+**Areas:** Consumer Packaged Goods · Beverages · Alcohol · Ready-to-Drink · Tequila · Direct to Consumer · E-Commerce · Retail · Shopify
 
-**Onda publishes no public API surface** — no developer program, no API documentation, no SDK, no
-machine-readable contract. It is a consumer packaged goods company, and it appears in this network
-because it trades on the private secondary market, not because it ships an API.
+## Onda on APIs.io
 
-Probed 2026-08-26: `drinkonda.com` is a Shopify storefront currently returning HTTP 404
-*"This store is unavailable"* on every path, `robots.txt` disallows all crawling, and the
-Shopify-generated `/llms.txt` reads *"This store is currently unavailable. Agent interaction is not
-possible at this time."* No `api.`, `developer.`, `docs.`, `dev.` or `mcp.` subdomain resolves.
-The last archived working capture of the storefront is 2026-02-18.
+Everything profiled for Onda is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/onda/](https://apis.io/providers/onda/)** — or go straight to one of the APIs or properties below.
 
-What is in this repo is the record of that probe, not an invented API:
+### Published properties
 
-- `well-known/onda-well-known.yml` — every `/.well-known/` path probed, all 404, plus the
-  soft-404 control that proves those are real negatives. No `WellKnown` pointer is emitted.
-- `security/onda-domain-security.yml` — TLS/HSTS/DNSSEC/CAA/SPF/DMARC observed on `drinkonda.com`.
-- `llms/onda-llms.txt` + `llms/onda-llms.yml` — the served `llms.txt` saved verbatim as dated
-  evidence, deliberately **not** wired as an `LLMsTxt` pointer.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-If you work at Onda and this is wrong, or you publish a contract we have not found, open an issue
-here or email kin@apievangelist.com.
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Onda Domain Security](https://apis.io/security/onda/onda-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://drinkonda.com/)
+
+## API Evangelist rating
+
+**Kin Score 3.8** — minimal · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 51.8 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 0.0 |
+| Access clarity | 0.0 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 5.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/onda/](https://apis.io/providers/onda/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Onda: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/onda/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
